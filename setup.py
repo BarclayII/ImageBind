@@ -1,23 +1,27 @@
 from setuptools import setup, find_packages
 
-with open('requirements.txt') as f:
-    required = f.read().splitlines()
-
+# Minimal dependencies — torch/torchvision/torchaudio/pytorchvideo
+# are provided by the parent project to avoid version conflicts.
 setup(
-    name='imagebind',
-    version='0.1.0',
+    name="imagebind",
+    version="0.1.0",
     packages=find_packages(),
     package_data={
-        'imagebind': ['bpe/bpe_simple_vocab_16e6.txt.gz'],
+        "imagebind": ["bpe/bpe_simple_vocab_16e6.txt.gz"],
     },
-    description='A brief description of the package',
-    long_description=open('README.md', encoding='utf-8').read(),
+    description="ImageBind: One Embedding Space To Bind Them All",
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url='https://github.com/facebookresearch/ImageBind',
+    url="https://github.com/facebookresearch/ImageBind",
     classifiers=[
-        'Programming Language :: Python :: 3',
-        'License :: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International',
+        "Programming Language :: Python :: 3",
     ],
-    install_requires=required,
-    dependency_links=['https://download.pytorch.org/whl/cu113'],
+    install_requires=[
+        "timm",
+        "ftfy",
+        "regex",
+        "einops",
+        "iopath",
+        "types-regex",
+    ],
 )

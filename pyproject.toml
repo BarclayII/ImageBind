@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imagebind"
+version = "0.1.0"
+description = "ImageBind: One Embedding Space To Bind Them All"
+readme = "README.md"
+requires-python = ">=3.8"
+# Only declare ImageBind's own unique dependencies here.
+# torch, torchvision, torchaudio, pytorchvideo are provided by the
+# parent project (e.g. raganything[video]) to avoid version conflicts.
+dependencies = [
+    "timm",
+    "ftfy",
+    "regex",
+    "einops",
+    "iopath",
+    "types-regex",
+]
+
+[tool.setuptools.packages.find]
+include = ["imagebind*"]
+
+[tool.setuptools.package-data]
+imagebind = ["bpe/bpe_simple_vocab_16e6.txt.gz"]
